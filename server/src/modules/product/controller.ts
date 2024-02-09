@@ -28,6 +28,7 @@ const ProductController = () =>
       const { _id, ...rest } = data;
       try {
         await ProductModel.updateOne({ _id }, { $set: rest });
+        return { _id: _id };
       } catch (error) {
         console.error(error);
         return error;
